@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <style>
+        .tarea {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 300px;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .completada {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido a mi página</h1>
+    
+    <!-- Agregar una imagen -->
+    <img src="images/trabajo_oficina.jpg" alt="Descripción de la imagen" width="300">
+    <form action="#" method="POST">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <button type="submit">Enviar</button>
+    </form>
+    <h1>Lista de Tareas</h1>
+    
+    <ul id="lista-tareas">
+        <li class="tarea">
+            <span>Tarea 1</span>
+            <button onclick="completarTarea(this)">Completar</button>
+        </li>
+        <li class="tarea">
+            <span>Tarea 2</span>
+            <button onclick="completarTarea(this)">Completar</button>
+        </li>
+        <li class="tarea">
+            <span>Tarea 3</span>
+            <button onclick="completarTarea(this)">Completar</button>
+        </li>
+    </ul>
+
+    <script>
+        function completarTarea(boton) {
+            let tarea = boton.parentElement; // Obtener el elemento <li>
+            let texto = tarea.querySelector("span"); // Obtener el texto de la tarea
+            texto.classList.toggle("completada"); // Alternar entre tachado y normal
+        }
+    </script>
+
+
+</body>
+</html>
