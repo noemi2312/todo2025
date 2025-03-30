@@ -4,58 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Página Web</title>
-    <style>
-        .tarea {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 300px;
-            margin-bottom: 10px;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .completada {
-            text-decoration: line-through;
-            color: gray;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Bienvenido a mi página</h1>
-    
-    <!-- Agregar una imagen -->
-    <img src="images/trabajo_oficina.jpg" alt="Descripción de la imagen" width="300">
+    <div class="fondo-seccion">
+        <h1 class="titulo-principal">Gestión de tareas</h1>
+    </div>
+
     <form action="#" method="POST">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        <button type="submit">Enviar</button>
+        <div class="input-container">
+            <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre">
+            <button type="submit">OK</button>
+        </div>
     </form>
-    <h1>Lista de Tareas</h1>
-    
-    <ul id="lista-tareas">
+
+    <h1 class="titulo-secundario">Lista de Tareas</h1>
+
+    <ul id="lista-taregit as">
         <li class="tarea">
+            <img class="checkbox" src="images/no_check.png" alt="checkbox" onclick="cambiarEstado(this)">
             <span>Tarea 1</span>
-            <button onclick="completarTarea(this)">Completar</button>
+            <img class="recycle-bin" src="images/recycle_bin.png" alt="Eliminar">
         </li>
         <li class="tarea">
+            <img class="checkbox" src="images/no_check.png" alt="checkbox" onclick="cambiarEstado(this)">
             <span>Tarea 2</span>
-            <button onclick="completarTarea(this)">Completar</button>
+            <img class="recycle-bin" src="images/recycle_bin.png" alt="Eliminar">
         </li>
         <li class="tarea">
+            <img class="checkbox" src="images/no_check.png" alt="checkbox" onclick="cambiarEstado(this)">
             <span>Tarea 3</span>
-            <button onclick="completarTarea(this)">Completar</button>
+            <img class="recycle-bin" src="images/recycle_bin.png" alt="Eliminar">
         </li>
     </ul>
 
     <script>
-        function completarTarea(boton) {
-            let tarea = boton.parentElement; // Obtener el elemento <li>
-            let texto = tarea.querySelector("span"); // Obtener el texto de la tarea
-            texto.classList.toggle("completada"); // Alternar entre tachado y normal
+        function cambiarEstado(imagen) {
+            if (imagen.src.includes("no_check.png")) {
+                imagen.src = "images/check.png";
+            } else {
+                imagen.src = "images/no_check.png";
+            }
+            let tarea = imagen.closest(".tarea");
+            let texto = tarea.querySelector("span");
+            texto.classList.toggle("completada");
         }
     </script>
-
-
 </body>
 </html>
